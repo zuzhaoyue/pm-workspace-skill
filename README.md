@@ -1,4 +1,4 @@
-# pm-workspace
+# pm-workspace-skill
 
 **给产品经理的本地知识库脚手架。** 一句话装好,然后通过对话把脑子里的业务口径搭成 AI 每次都会先读的上下文。
 
@@ -28,7 +28,7 @@
 
 把下面这段话发给你的 AI,就完成了安装:
 
-> 请阅读 https://raw.githubusercontent.com/zuzhaoyue/pm-workspace/main/SKILL.md
+> 请阅读 https://raw.githubusercontent.com/zuzhaoyue/pm-workspace-skill/main/SKILL.md
 > 并按照文件里的「安装」一节完成安装,安装完成后告诉我你能做什么
 
 目前只在 **Claude Code** 上验证过,复制粘贴发送即可,装完**重开一次会话**生效。

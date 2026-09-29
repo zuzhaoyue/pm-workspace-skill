@@ -17,7 +17,7 @@ description: >
 
    ```bash
    mkdir -p ~/.claude/skills/workspace-init
-   curl -fsSL https://raw.githubusercontent.com/zuzhaoyue/pm-workspace/main/SKILL.md \
+   curl -fsSL https://raw.githubusercontent.com/zuzhaoyue/pm-workspace-skill/main/SKILL.md \
      -o ~/.claude/skills/workspace-init/SKILL.md
    ```
 
