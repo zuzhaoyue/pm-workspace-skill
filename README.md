@@ -31,9 +31,10 @@
 > 请阅读 https://raw.githubusercontent.com/zuzhaoyue/pm-workspace/main/SKILL.md
 > 并按照文件里的「安装」一节完成安装,安装完成后告诉我你能做什么
 
-Claude Code、Cursor,任何能读文件、能写文件的 AI Agent 都能用。复制粘贴发送即可。
+目前只在 **Claude Code** 上验证过,复制粘贴发送即可,装完**重开一次会话**生效。
 
-装完**重开一次会话**生效。
+其他 AI Agent(Cursor 等)理论上也能用 —— 把 SKILL.md 的内容原样放进它的规则文件就行,
+一个字都不用改 —— 但**我没实测过**,触发方式和效果都不保证。
 
 ## 怎么用
 
