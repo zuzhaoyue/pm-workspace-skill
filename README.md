@@ -26,19 +26,49 @@
 
 ## 怎么装
 
-把下面这段话发给你的 AI,就完成了安装:
+### 第 0 步:先有 Claude Code(一次性,以后不用再做)
 
-> 请阅读 https://raw.githubusercontent.com/zuzhaoyue/pm-workspace-skill/main/SKILL.md
-> 并按照文件里的「安装」一节完成安装,安装完成后告诉我你能做什么
+⚠️ **Claude Code 需要 Pro / Max / Team / Enterprise 付费订阅**,免费版用不了。
 
-目前只在 **Claude Code** 上验证过,复制粘贴发送即可,装完**重开一次会话**生效。
+**不用碰终端、不用装 Node.js**,下载桌面 App 就行:
+
+- [macOS 下载](https://claude.ai/api/desktop/darwin/universal/dmg/latest/redirect)
+- [Windows 下载](https://claude.ai/api/desktop/win32/x64/setup/latest/redirect)
+
+装完打开,用你的 Anthropic 账号登录。
+
+### 第 1 步:装这个 skill
+
+1. 在电脑上**随便新建一个文件夹**(叫什么都行,装完就能删 —— 这一步只是给 Claude
+   一个落脚点,skill 会装到你的用户目录,跟这个文件夹无关)。
+2. 打开 Claude App,点顶部中间的 **Code** 标签。
+   ⚠️ **必须是 Code,不能是 Chat** —— Chat 没有读写文件的权限,口令发进去不会生效。
+   (点 Code 如果提示升级,就是订阅问题,见第 0 步)
+3. 选 **Local**,点 **Select folder**,选刚才新建的那个文件夹。
+4. 在下方输入框里粘贴这段话,回车:
+
+   > 请阅读 https://raw.githubusercontent.com/zuzhaoyue/pm-workspace-skill/main/SKILL.md
+   > 并按照文件里的「安装」一节完成安装,安装完成后告诉我你能做什么
+
+5. Claude 会下载文件、写到你的用户目录,然后告诉你它能做什么。中途可能会弹窗问
+   「是否允许执行这条命令」,点允许。
+6. **关掉当前会话、重新开一个**(侧边栏新建 session),skill 才会生效。
+
+### 第 2 步:搭你的第一个工作区
+
+见下面「怎么用」。
+
+---
 
 其他 AI Agent(Cursor 等)理论上也能用 —— 把 SKILL.md 的内容原样放进它的规则文件就行,
 一个字都不用改 —— 但**我没实测过**,触发方式和效果都不保证。
 
 ## 怎么用
 
-新建一个**空文件夹**,在里面开 AI,说任意一句:
+**这一步要新建一个真正的空文件夹**,用来放这个产品的知识库(跟第 1 步那个临时文件夹不是一回事,
+那个可以删了)。文件夹名字建议就用产品名。
+
+在 Claude App 的 **Code** 标签里 **Select folder** 选中它,然后说任意一句:
 
 - `/workspace-init`
 - 「帮我搭个产品经理的工作台」
