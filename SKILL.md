@@ -186,7 +186,9 @@ description: >
 
 **选问**(3 题答完后,视情况问,不强求):
 
-4. 有没有要沿用的**工作规范**(PRD 写法、原型规范之类)?有的话放进 `.claude/skills/`。
+4. 有没有**自己公司的**工作规范要带进来(PRD 模板、原型规范之类)?
+   有的话放进 `.claude/skills/`,会和附带的那两个并存;
+   如果和 `prd-writing` 冲突,**直接改掉 prd-writing 那份**,不要两套规范打架。
 5. 要不要 `git init`?(建议要 —— 口径改过什么、什么时候改的,靠 git 才追得回来)
 
 ### 第 3 步:生成目录与文件
@@ -197,6 +199,9 @@ description: >
 ```
 <项目名>/
 ├── CLAUDE.md                     模板 A,填入采访结果
+├── .claude/skills/               随工作区附带的 PM 工作技能(见下方「附带的 skill」)
+│   ├── prd-writing/
+│   └── competitor-analysis/
 ├── 业务上下文/
 │   ├── 00-产品概览.md             模板 B
 │   ├── 已上线业务/                第 3 题「已经上线了」的功能放这里
@@ -205,6 +210,27 @@ description: >
 ├── prd/
 └── 原型/                         默认建;要分端就 原型/<功能>/<端>/
 ```
+
+#### 附带的 skill(装进**工作区**,不是全局)
+
+搭完目录后,把这两个 PM 常用 skill 下载进 `<项目名>/.claude/skills/`:
+
+```bash
+mkdir -p .claude/skills/prd-writing .claude/skills/competitor-analysis
+curl -fsSL https://raw.githubusercontent.com/zuzhaoyue/pm-workspace-skill/main/skills/prd-writing/SKILL.md \
+  -o .claude/skills/prd-writing/SKILL.md
+curl -fsSL https://raw.githubusercontent.com/zuzhaoyue/pm-workspace-skill/main/skills/competitor-analysis/SKILL.md \
+  -o .claude/skills/competitor-analysis/SKILL.md
+```
+
+- `prd-writing` —— 写 / 改需求文档时自动触发
+- `competitor-analysis` —— 做竞品调研时自动触发
+
+**为什么装在工作区而不是全局**:PRD 写法是团队约定,各家不一样。装在工作区里,
+用户能直接改成自己公司的规范,而且跟知识库一起走(拷给同事、推仓库都带着)。
+
+⚠️ **下载失败不要中断初始化** —— 知识库本体不依赖这两个 skill。
+curl 失败就跳过,在验收时说一句「附带的两个 skill 没下下来,要的话我再试一次」。
 
 用户另外提到的产出(竞品调研、客户答疑…)→ 按需加同级目录,别硬塞进 `业务上下文/`。
 
@@ -235,11 +261,14 @@ description: >
 
 1. 产品一句话定位(让他确认没理解错)
 2. 生成了什么,三层文件夹分别是什么意思
-3. **把两个默认值摊开,让他一句话纠正**:
+3. **说明附带的两个 skill**:「顺带给你装了两个工作技能 —— 写 PRD 时会自动用
+   `prd-writing` 的规范,做竞品调研时会用 `competitor-analysis`。
+   它们就在 `.claude/skills/` 里,是通用骨架,**和你们公司的规范不一样就直接改那两个文件**。」
+4. **把两个默认值摊开,让他一句话纠正**:
    - 「文档和界面我都按**中文**处理了,没建文案对照表。产品要出海的话告诉我。」
      (若采访中已问过语言,改成按实际情况陈述)
    - 「默认建了 `prd/` 和 `原型/` 两个目录。还要竞品调研、客户答疑之类的,说一声。」
-4. **下一步做三件事**:
+5. **下一步做三件事**:
    - 把第 3 题里「还在聊」的功能,未定的口径逐条记进待确认清单(每条配一个通俗事例)
    - 拿一个真实需求跑一遍:让 AI 先读 CLAUDE.md,再写 PRD,看口径对不对
    - 口径一旦拍板 → 从待确认清单移进业务规则文件(这一步不做,知识库就开始腐烂)
